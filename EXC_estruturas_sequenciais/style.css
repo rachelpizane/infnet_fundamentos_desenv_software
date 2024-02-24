@@ -1,0 +1,37 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+.main_form {
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.topic-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin: 0.75rem 0;
+  padding: 0.5rem;
+  border: 1px solid #757575;
+  width: 200px;
+}
+
+.form-input:focus {
+  box-shadow: 0px 0px 10px #b3b1b1;
+  outline: none;
+}
+
+.form-input#resultado {
+  background-color: #e0e0e0;
+  font-weight: bold;
+  width: 500px;
+}
+
+.button {
+  cursor: pointer;
+  padding: .25rem 0.5rem;
+  width: fit-content;
+}

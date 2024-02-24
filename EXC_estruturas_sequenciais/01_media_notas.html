@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media das notas</title>
+</head>
+<body>
+    <h1>Media das notas</h1>
+
+    <p>Crie um algoritmo que receba, como entrada, o valor de três notas de um aluno - com valor entre 0 e 10, e, em seguida, informe a média entre elas. Neste momento, não é necessário validar se a nota está dentro do intervalo válido!</p>
+    
+    <p>Veja o resultado no console do navegador (F12).</p>
+
+    <script>
+        let nota1 = Number(prompt("Qual foi o valor da sua primeira nota?"));
+        let nota2 = Number(prompt("Qual foi o valor da sua segunda nota?"));
+        let nota3 = Number(prompt("Qual foi o valor da sua terceira nota?"));
+
+        let media = (nota1 + nota2 + nota3)/3;
+
+        console.log("A primeira nota foi " + nota1 + ", a segunda nota foi " + nota2 
+        + " e a última foi " + nota3 + ". A média das notas  é " + media.toFixed(2) + ".");  
+    </script>
+</body>
+</html>
