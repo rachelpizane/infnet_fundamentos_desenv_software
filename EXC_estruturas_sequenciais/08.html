@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Salario reajustadoa</title>
+</head>
+
+<body>
+    <h1>Salario reajustado</h1>
+
+    <p>Crie um algoritmo que calcule o novo valor de um salário a partir de um valor percentual de reajuste. O valor atual do salário e o valor percentual do reajuste devem ser informados pelo usuário como, por exemplo, 7,3%.</p>
+
+    <form class="main_form">
+       
+        <div class="topic-form">
+            <label for="">Salario atual </label>
+            <input type="number" id="salarioAtual" step="any" class="form-input" placeholder="Escreva aqui salario atual">
+        </div>
+
+        <input type="button" value="Calcular" class="button" onclick="reajusteSalarial()">
+
+        <div class="topic-form">
+            <label> Resultado: </label>
+            <input type="text" id="resultado" class="form-input" readonly>
+        </div>
+    </form>
+
+    <script>
+        function reajusteSalarial() {
+
+            let salarialAtual = parseFloat(document.getElementById("salarioAtual").value);
+            const reajustePercentual = 7.3;
+
+            let salarialReajustado = (salarialAtual * (1 + (reajustePercentual / 100))).toFixed(2);
+
+            let resultado = document.getElementById("resultado");
+
+            resultado.value = "O salario aumentou em " + reajustePercentual + "% e o valor reajustado ficou em R$ " + salarialReajustado + ".";
+        }
+    </script>
+</body>
+
+</html>

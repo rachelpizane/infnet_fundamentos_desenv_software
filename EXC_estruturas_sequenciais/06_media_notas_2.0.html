@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular média das notas</title>
+</head>
+
+<body>
+    <h1>Calcular média das notas</h1>
+
+    <p>Crie um algoritmo para calcular a média de duas notas digitadas pelo usuário, sendo que a segunda nota tem peso dois.</p>
+
+    <form class="main_form">
+
+        <div class="topic-form">
+            <label for="">1ª Nota </label>
+            <input type="number" id="nota1" step="any" class="form-input" placeholder="Escreva sua primeira nota">
+        </div>
+
+        <div class="topic-form">
+            <label for="">2ª Nota </label>
+            <input type="number" id="nota2" step="any" class="form-input" placeholder="Escreva sua segunda nota">
+        </div>
+
+        <input type="button" value="Calcular" class="button" onclick="calcularMediaNotas()">
+
+        <div class="topic-form">
+            <label> Resultado: </label>
+            <input type="text" id="resultado" class="form-input" readonly>
+        </div>
+    </form>
+
+    <script>
+        function calcularMediaNotas() {
+            let nota1 = Number(document.getElementById("nota1").value);
+            let nota2 = Number(document.getElementById("nota2").value);
+
+            const peso1 = 1;
+            const peso2 = 2;
+
+            let media = ((nota1 * peso1) + (nota2 * peso2)) / (peso1 + peso2);
+
+            let mediaFormatada = media.toFixed(2);
+
+            let resultado = document.getElementById("resultado");
+
+            resultado.value = "A média final do usuário foi " + mediaFormatada + ".";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular a gorjeta a ser paga</title>
+</head>
+
+<body>
+    <h1>Calcular a gorjeta a ser paga</h1>
+
+    <p>Crie um algoritmo que calcule a gorjeta a ser paga de uma conta de restaurante. A gorjeta é calculada como sendo 10% do valor da conta, que deve ser informado pelo usuário.</p>
+
+    <form class="main_form">
+        <p><strong>Valor da gorjeta</strong>: 10% do valor da conta.</p>
+
+        <div class="topic-form">
+            <label for="">Valor da conta </label>
+            <input type="number" id="valorConta" step="any" class="form-input" placeholder="Escreva aqui o valor da conta">
+        </div>
+
+        <input type="button" value="Calcular" class="button" onclick="calcularGorjeta()">
+
+        <div class="topic-form">
+            <label> Resultado: </label>
+            <input type="text" id="resultado" class="form-input" readonly>
+        </div>
+    </form>
+
+    <script>
+        function calcularGorjeta() {
+            let valorConta = parseFloat(document.getElementById("valorConta").value);
+            const porcentagemGorjeta = 10 / 100;
+            
+            let gorjeta = (valorConta * porcentagemGorjeta).toFixed(2);
+
+            let resultado = document.getElementById("resultado");
+            resultado.value = "O valor da gorjeta será de " + gorjeta + " reais.";
+        }
+    </script>
+</body>
+
+</html>
