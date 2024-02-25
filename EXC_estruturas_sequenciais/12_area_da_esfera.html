@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <h1>Calcular área do círculo</h1>
+    <h1>Calcular área da esfera</h1>
 
-    <p>Crie um algoritmo que calcule a área de um círculo, sendo que o comprimento do raio é informado pelo usuário. A área do círculo é calculada multiplicando-se pi e o raio ao quadrado.</p>
+    <p>Crie um algoritmo que calcule a área de uma esfera, sendo que o comprimento do raio é informado pelo usuário. A área da esfera é calculada multiplicando-se 4 vezes pi e o raio ao quadrado.</p>
 
     <form class="main_form">
 
@@ -20,7 +20,7 @@
             <input type="number" id="raio" step="any" class="form-input" placeholder="Informe o comprimento do raio">
         </div>
 
-        <input type="button" value="Calcular" class="button" onclick="calcularAreaCirculo()">
+        <input type="button" value="Calcular" class="button" onclick="calcularAreaEsfera()">
 
         <div class="topic-form">
             <label> Resultado: </label>
@@ -29,16 +29,18 @@
     </form>
 
     <script>
-        function calcularAreaCirculo() {
-            const pi = Math.PI
+        function calcularAreaEsfera() {
+            
+            const pi4vezes = Math.PI * 4;
             let raio = document.getElementById("raio").value;
-            let areaCirculo = pi * (raio ** 2)
-            let areaCirculoFormatado = areaCirculo.toFixed(2);
+
+            let areaEsfera = pi4vezes * (raio ** 2);
+            let areaEsferaFormatado = areaEsfera.toFixed(2);
 
             let resultado = document.getElementById("resultado");
-            resultado.value = "O círculo possui " + raio + " cm de raio. Sua área é de " + areaCirculoFormatado + " cm².";
-        }
 
+            resultado.value = "A esfera possui " + raio + " cm de raio. Sua área é de " + areaEsferaFormatado + " cm²";
+        }
     </script>
 </body>
 

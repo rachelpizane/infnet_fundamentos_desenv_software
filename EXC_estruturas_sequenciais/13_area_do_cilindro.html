@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular área do cilindro</title>
+    <style>
+        #resultado {
+            width: 560px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calcular área do cilindro</h1>
+
+    <p>Crie um algoritmo que calcule o volume de uma caixa d'água cilíndrica, sendo que os comprimentos do raio e a altura são informados pelo usuário. O volume é calculado multiplicando-se pi, o raio ao quadrado e a altura.</p>
+
+    <form class="main_form">
+
+        <div class="topic-form">
+            <label>Valor do raio:</label>
+            <input type="number" id="raio" step="any" class="form-input" placeholder="Informe o comprimento do raio">
+        </div>
+
+        <div class="topic-form">
+            <label>Valor da altura:</label>
+            <input type="number" id="altura" step="any" class="form-input" placeholder="Informe o comprimento da altura">
+        </div>
+
+        <input type="button" value="Calcular" class="button" onclick="calcularAreaEsfera()">
+
+        <div class="topic-form">
+            <label> Resultado: </label>
+            <input type="text" id="resultado" class="form-input" readonly>
+        </div>
+    </form>
+
+    <script>
+        function calcularAreaEsfera() {
+            // 
+
+            const pi = Math.PI;
+            let raio = document.getElementById("raio").value;
+            let altura = document.getElementById("altura").value;
+
+            let areaCilindrica = pi * altura * (raio ** 2);
+
+            let areaCilindricaFormatado = areaCilindrica.toFixed(2);
+
+            let resultado = document.getElementById("resultado");
+
+            resultado.value = "A caixa d'agua cilíndrica possui " + raio + " m de raio e " + altura + " m de altura. O volume é de " + areaCilindricaFormatado + " m³.";
+        }
+    </script>
+</body>
+
+</html>

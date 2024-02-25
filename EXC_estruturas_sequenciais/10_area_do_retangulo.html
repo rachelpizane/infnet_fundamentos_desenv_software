@@ -8,7 +8,11 @@
     <title>Calcular área do retângulo</title>
     <style>
         .form-input {
-            width: 230px;
+            width: 240px;
+        }
+
+        #resultado {
+            width: 550px;
         }
     </style>
 </head>
@@ -42,9 +46,13 @@
         function calcularAreaRetangulo() {
             let altura = document.getElementById("altura").value;
             let base = document.getElementById("base").value;
+
             let areaRetangulo = altura * base;
+            let areaRetanguloFormatado = areaRetangulo.toFixed(2);
+
             let resultado = document.getElementById("resultado");
-            resultado.value = "O rentangulo possui " + altura + " cm de altura e " + base + " cm de base. A sua área é de " + areaRetangulo + " cm²."
+
+            resultado.value = "O rentangulo possui " + altura + " cm de altura e " + base + " cm de base. A sua área é de " + areaRetanguloFormatado + " cm²."
         }
     </script>
 </body>
