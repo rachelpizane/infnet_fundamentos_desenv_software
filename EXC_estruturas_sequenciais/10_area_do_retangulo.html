@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular área do retângulo</title>
+    <style>
+        .form-input {
+            width: 230px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calcular área do retângulo</h1>
+
+    <p>Crie um algoritmo que calcule a área de um retângulo, sendo que os comprimentos da altura e da base são informados pelo usuário. A área do retângulo é calculada multiplicando-se a altura pela base.</p>
+
+    <form class="main_form">
+
+        <div class="topic-form">
+            <label>Valor da altura:</label>
+            <input type="number" id="altura" step="any" class="form-input" placeholder="Informe o comprimento da altura">
+        </div>
+
+        <div class="topic-form">
+            <label>Valor da base:</label>
+            <input type="number" id="base" step="any" class="form-input" placeholder="Informe o comprimento da base">
+        </div>
+
+        <input type="button" value="Calcular" class="button" onclick="calcularAreaRetangulo()">
+
+        <div class="topic-form">
+            <label> Resultado: </label>
+            <input type="text" id="resultado" class="form-input" readonly>
+        </div>
+    </form>
+
+    <script>
+        function calcularAreaRetangulo() {
+            let altura = document.getElementById("altura").value;
+            let base = document.getElementById("base").value;
+            let areaRetangulo = altura * base;
+            let resultado = document.getElementById("resultado");
+            resultado.value = "O rentangulo possui " + altura + " cm de altura e " + base + " cm de base. A sua área é de " + areaRetangulo + " cm²."
+        }
+    </script>
+</body>
+
+</html>
