@@ -30,7 +30,7 @@
             <input type="number" id="altura" step="any" class="form-input" placeholder="Informe o comprimento da altura">
         </div>
 
-        <input type="button" value="Calcular" class="button" onclick="calcularAreaEsfera()">
+        <input type="button" value="Calcular" class="button" onclick="calcularAreaCilindro()">
 
         <div class="topic-form">
             <label> Resultado: </label>
@@ -39,9 +39,8 @@
     </form>
 
     <script>
-        function calcularAreaEsfera() {
-            // 
-
+        function calcularAreaCilindro() {
+            
             const pi = Math.PI;
             let raio = document.getElementById("raio").value;
             let altura = document.getElementById("altura").value;
