@@ -2,7 +2,7 @@
 
 ## 1. Introdução 📝
 
-Este repositório contém as atividades realizadas em aula e os exercícios propostos nos livros indicados para projeto de bloco de **Fundamentos do Desenvolvimento de Software** no Instituto Infnet.
+Este repositório contém as atividades realizadas em aula e listas de exercícios para projeto de bloco de **Fundamentos do Desenvolvimento de Software** no Instituto Infnet.
 
 <br>
 

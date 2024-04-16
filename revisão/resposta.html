@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão | Exercícios</title>
+</head>
+<body>
+    <script>
+        //1. Descubra o valor máx, mín e a medía dos vetores abaixo na mão
+        let valores = [1, 18, 26, 4, 12, 19, 25, 6, 10, 24]
+        
+        let valorMax = valores[0]
+        for(let i = 0; i < valores.length; i++){
+            if(valores[i] > valorMax){
+                valorMax = valores[i]
+            }
+        }
+        console.log(valorMax)
+
+        let valorMin = valores[0]
+        for(let i = 0; i < valores.length; i++){
+            if(valores[i] < valorMin){
+                valorMin = valores[i]
+            }
+        }
+        console.log(valorMin)
+
+        let valorSoma = 0;
+        for (let i = 0; i < valores.length; i++){
+            valorSoma = valorSoma + valores[i]
+        }
+        let valorMedia = valorSoma / valores.length
+        
+        console.log(valorMedia)
+        // 2. Imprima os valores da matriz abaixo com for:
+
+        let matriz = [
+            [2, 7, 8, 3],
+            [9, 4, 6, 1],
+            [10, 3, 2, 9],
+            [1, 6, 5, 3],
+        ]
+
+        for(let i =0; i < matriz.length; i++){
+            for(let j = 0; j < matriz[i].length; j++){
+                console.log(matriz[i][j])
+            }
+        }
+
+    </script>
+</body>
+</html>

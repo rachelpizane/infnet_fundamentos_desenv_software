@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let temperaturas = [22, 24, 25, 25, 25, 26, 27, 30, 31, 33, 30, 29, 28, 24, 22, 21];
+        // Como achar a tempetura maxima?
+        // Importante saber como funciona os algoritmos, por mais que existam formulas pre-prontas.
+
+        // Uma forma é utilizar o Math.Max + Spread.
+        // Porque nao funciona se usar só o Math.Max? Poisa função compara argumentos e o vetor é considerado um argumento. Para que isso nao ocorra, utilizamos o spread para transformar os valores em argumentos. É como se tirarssemos os colchetes.
+
+        //*SPREAD - É um operador novo que veio na versão ES6 e que abre o vetor. No nosso exemplo, ele tira os colchetes do vetor temperaturas. Com isso é possivel fazer o math.max, pois antes disso ele diria que nao é um numero, pois ele considera que o vetor é um unico argumento
+
+        //exemplo:
+        function sum(x, y, z){
+            return x + y + z
+        }
+
+        let nums = [1, 2, 3]
+        console.log(sum(nums)) // erro
+        console.log(sum(...nums)) // transforma cada valor em um argumento
+        // fecha exemplo
+
+        let temperaturaMaxima = Math.max(...temperaturas)
+        console.log(temperaturaMaxima)
+    
+
+        //Contudo, o SPREAD só tem tem só no Javascript mais recente. Então como poderiamos descobrir na mão?
+
+        let max = temperaturas[0];
+
+        // Para procurar a tempratura max
+        for(let i = 0; i < temperaturas.length; i++){
+            if(temperaturas[i] > max){
+                max = temperaturas[i]
+            }
+        }
+        console.log(max)
+
+        // Para descobrir a média
+        let SomaTemperaturas = 0;
+        
+        for(let i = 0; i < temperaturas.length; i++){
+            SomaTemperaturas = SomaTemperaturas + temperaturas[i]
+        }
+
+        let temperaturaMedia = SomaTemperaturas / temperaturas.length
+        console.log(temperaturaMedia.toFixed(2))
+        
+        console.log("------\n")
+
+        let valores = [2, 6, 3, 9, 10, 8, 11, 15, 18, 14, 17, 4, 1]
+        let valorMax = valores[0]; //Para iniciarmos, precisamos de um valor para comparação,normlamente indicamos o primeiro valor do index 0 de um vetor.
+        for(let i = 0; i < valores.length; i++){ // Agora faremos uma loop que comparará o valorMax com cada valor do vetor, em ordem crescente. Se o valor do vetor atual for maior, ele vai entrar no valorMax.
+            if(valores[i] > valorMax){ 
+                valorMax = valores[i];
+            }
+        }
+        console.log(valorMax)
+
+        let teste = [2, 4, 1, 3]
+        let TestMin = teste[0] 
+        for(let i = 0; i < teste.length; i++){
+            if(teste[i] < TestMin){
+                TestMin = teste[i]
+            }
+        }
+        /*Escrevendo seria mais ou menos:
+        Até o momento, o menor valor do vetor "teste", é o do index 0 (2), e aguardaremos na variável testMin.
+        Iniciaremos a repetição até o final do vetor (< teste.length == < 4)
+        1º loop: o valor do index 0 (2) é menor que o valor do TestMin (2) ? Não. Nada acontece
+        2º loop: o valor do index 1 (4) é menor queo valor do testMin (2)?  Não. Nada acontece
+        3º loop: o valor do index 2 (1) é menor queo valor do testMin (2)? Sim! Substituir o valor 2 para 1 no testMin.
+        4º loop: o valor do index 3 (3) é menor queo valor do testMin (1)? Não. Nada acontece
+        */
+
+        console.log(TestMin)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Falaremos sobre matriz
+        // Vetor bidimensional = Matriz
+        let matriz = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+        ]; // um vetor de vetores
+
+        // Como percorrer os valores.
+        console.log(matriz[2][2]) //indice da linha e indice da coluna
+        // Como imprimir todos os valores com um loop?
+    
+        for (let i = 0; i < matriz.length; i++){ //variando a linha
+            for (let j = 0; j < matriz[i].length; j++){ // Variando a coluna
+                console.log(matriz[i][j])
+            } // Varre cada na linha e na linha, varre cada coluna.
+        } // Tem q fazer isso na mão pra treinar bem. Prof disse que vai entrar no meu sangue.
+
+        console.log("-----\n")
+        let matrizX = [
+            [2, 4],
+            [5, 3],
+        ]
+
+        for(let i = 0; i < matrizX.length; i++){
+            for(let j = 0; j < matrizX[i].length; j++){
+                console.log(matrizX[i][j])
+            }
+        }
+        // Escrevendo seria mais ou menos:
+        // Faremos um loop para cada valor do vetor principal, em ordem crescente.
+        // Dentro de cada valor, iremos fazer mais um loop para cada valor dos vetores filhos.
+        // 1º loop = index 0 da Matriz Principal
+        //    1º loop = index 0 da Matriz Filho = matrizX[0][0] = 2
+        //    2º loop = index 1 da Matriz Filho = matrizX[0][1] = 4
+
+        // 2º loop = index 1 da Matriz Principal
+        //    1º loop = index 0 da Matriz Filho = matrizX[1][0] = 5
+        //    2º loop = index 1 da Matriz Filho = matrizX[1][1] = 3
+
+    </script>
+</body>
+</html>

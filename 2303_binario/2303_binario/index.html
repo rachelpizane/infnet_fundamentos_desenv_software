@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function decimalParaBinario(decimal) {
+            if (decimal == 0 || decimal == 1) {
+                return decimal
+            } 
+                
+            let binario = '';
+            while (decimal > 0) {
+            let resto;
+            resto = decimal % 2;
+            binario = resto + binario;
+            decimal = Math.floor(decimal / 2);
+            }
+            
+            return binario
+    
+        }
+        console.log(decimalParaBinario(45));
+    </script>
+</body>
+
+</html>
