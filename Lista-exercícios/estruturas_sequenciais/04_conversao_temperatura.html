@@ -17,17 +17,15 @@
 
     <h1>Conversão de temperatura</h1>
 
-    <p>Crie um algoritmo que recebe um valor de temperatura em Celsius e o converte para Fahrenheit. </p>
-    
-    <code>F = (C * 9/5)+32</code>
+    <p>Crie um algoritmo que recebe um valor de temperatura em Celsius e o converte para Fahrenheit .F = (C * 9/5)+32</p>
 
     <form class="main_form">
         <div class="topic-form">
-            <label>Temp. Celsius:</label>
+            <label>Temperatura Celsius:</label>
             <input type="number" id="temperatura" step="any" class="form-input" placeholder="Escreva a temperatura Celsius">
         </div>
 
-        <input type="button" value="Converter" class="button" onclick="conversaoTemperatura()">
+        <input type="button" value="Calcular" class="button" onclick="conversaoTemperatura()">
 
         <div class="topic-form">
             <label> Resultado: </label>
@@ -38,14 +36,13 @@
 
     <script>
         function conversaoTemperatura() {
+            let resultado = document.getElementById("resultado")
+
             let celsius = Number(document.getElementById("temperatura").value);
            
             let fahrenheit = (celsius *(9 / 5)) + 32;
-            let fahrenheitFormatado = fahrenheit.toFixed(2);
-            console.log(fahrenheitFormatado)
-
-            let resultado = document.getElementById("resultado")
-            resultado.value = fahrenheitFormatado;
+            
+            resultado.value = "Temperatura em Fahrenheit: " + fahrenheit.toFixed(2) + ".";
         }
     </script>
 </body>
