@@ -1,6 +1,8 @@
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
+
 .main_form {
   margin: 1.5rem 0;
   display: grid;
