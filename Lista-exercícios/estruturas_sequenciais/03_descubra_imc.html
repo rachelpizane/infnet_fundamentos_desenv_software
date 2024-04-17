@@ -3,35 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
     <title>Descubra IMC</title>
 </head>
 <body>
     <h1>Descubra IMC</h1>
 
     <p>Crie um algoritmo que recebe o valor da altura e do peso de uma pessoa e retorna seu IMC (IMC = peso / altura²).</p>
-    
-    <p>Veja o resultado no console do navegador (F12).</p>
 
+    <form class="main_form">
+        <div class="topic-form">
+            <label for="">Peso: </label>
+            <input type="number" id="peso" step="any" class="form-input"
+            placeholder="Informe o seu peso">
+        </div>
+
+        <div class="topic-form">
+            <label for="">Altura: </label>
+            <input type="number" id="altura" step="any" class="form-input"
+            placeholder="Informe a sua altura">
+        </div>
+
+        <input type="button" value="Calcular" class="button" onclick="calcularIMC()">
+       
+        <div class="topic-form">
+            <label> Resultado: </label>
+            <input type="text" id="resultado" class="form-input" readonly>
+        </div>
+    </form>
     <script>
-        let altura = Number(prompt("Qual é a sua altura? "));
-        let peso = Number(prompt("Qual é o seu peso? "));
+        function calcularIMC(){
+            let resultado= document.getElementById("resultado")
 
-        let imc = (peso / (altura * altura)); // altura * altura = altura ** 2 = Math.sqr(altura).
+            let peso = Number(document.getElementById("peso").value);
+            let altura = Number(document.getElementById("altura").value);
+        
+            let imc = peso / (altura ** 2);  // altura * altura = altura ** 2 = Math.sqr(altura).
 
-        console.log("O seu IMC é de " + imc.toFixed(2) + "."); // A cadeia de string e a variavel são parametros da função .log().
+            const baixoImc = 18.5;
+            const altoImc = 25;
+            
+            let resposta = "";
+        
+            if(imc > altoImc){
+                resposta = "Cuidado, seu IMC está muito alto."
+            } else if(imc < baixoImc){
+                resposta = "Cuidado, seu IMC está muito baixo."
+            } else {
+                resposta = "Parabéns! Seu imc está adequado."
+            }
 
+            resultado.value = imc.toFixed(2) + ". " + resposta;
 
-        // Mostrar se a pessoa está dentro do peso ou não.
-
-        const baixoImc = 18.5;
-        const altoImc = 25;
-
-        if ((imc >= baixoImc) && (imc <= altoImc)) { // se o imc for maior ou igual a 18.5 E menor ou igual a 25
-        // se for verdade esse comando será executado.
-        console.log("Pelo IMC, você está dentro do peso recomendado para sua altura.") 
-        } else {
-        // se for falso, esse comnandp será executado.
-        console.log ("Pelo IMC, você não está dentro do peso recomendado para sua altura.") // se for falso, esse comando será executado.
         }
     </script>
 </body>
