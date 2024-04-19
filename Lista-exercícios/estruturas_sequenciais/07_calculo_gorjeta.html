@@ -9,12 +9,19 @@
 </head>
 
 <body>
+    <div class="container_link">
+        <a href="06_media_notas_2.0.html">&lt&lt 06</a>
+        <a href="07_calculo_gorjeta.html">07</a>
+        <a href="08_salario_reajustado.html">08 &gt&gt</a>
+    </div>
+
     <h1>Calcular a gorjeta a ser paga</h1>
 
     <p>Crie um algoritmo que calcule a gorjeta a ser paga de uma conta de restaurante. A gorjeta é calculada como sendo 10% do valor da conta, que deve ser informado pelo usuário.</p>
 
+    <p><strong>Valor da gorjeta</strong>: 10% do valor da conta.</p>
     <form class="main_form">
-        <p><strong>Valor da gorjeta</strong>: 10% do valor da conta.</p>
+        
 
         <div class="topic-form">
             <label>Valor da conta:</label>
@@ -34,10 +41,10 @@
             let valorConta = parseFloat(document.getElementById("valorConta").value);
             const porcentagemGorjeta = 10 / 100;
             
-            let gorjeta = (valorConta * porcentagemGorjeta).toFixed(2);
+            let gorjeta = (valorConta * porcentagemGorjeta);
 
             let resultado = document.getElementById("resultado");
-            resultado.value = "O valor da gorjeta será de " + gorjeta + " reais.";
+            resultado.value = "O valor da gorjeta será de " + gorjeta.toFixed(2) + " reais.";
         }
     </script>
 </body>

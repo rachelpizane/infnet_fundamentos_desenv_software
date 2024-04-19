@@ -9,12 +9,17 @@
 </head>
 
 <body>
+    <div class="container_link">
+        <a href="08_salario_reajustado.html">&lt&lt 08</a>
+        <a href="09_area_do_quadrado.html">09</a>
+        <a href="10_area_do_retangulo.html">10 &gt&gt</a>
+    </div>
+
     <h1>Calcular área do quadrado</h1>
 
     <p>Crie um algoritmo que calcule a área de um quadrado, sendo que o comprimento do lado é informado pelo usuário. A área do quadrado é calculada elevando-se o lado ao quadrado.</p>
 
     <form class="main_form">
-
         <div class="topic-form">
             <label>Valor do comprimento do lado:</label>
             <input type="number" id="comprimento" step="any" class="form-input" placeholder="Informe o comprimento do lado">
@@ -30,11 +35,13 @@
 
     <script>
         function calcularAreaQuadrado() {
+            let lado = parseFloat(document.getElementById("comprimento").value);
 
-            let lado = document.getElementById("comprimento").value;
             let areaQuadrado = lado ** 2;
+
             let resultado = document.getElementById("resultado");
-            resultado.value = "A área do quadrado que possui " + lado + " cm de cumprimento é de " + areaQuadrado + "cm².";
+
+            resultado.value = "A área do quadrado que possui " + lado + " cm de comprimento é de " + areaQuadrado + "cm².";
         }
     </script>
 </body>

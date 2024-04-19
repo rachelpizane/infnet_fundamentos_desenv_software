@@ -9,12 +9,17 @@
 </head>
 
 <body>
+    <div class="container_link">
+        <a href="10_area_do_retangulo.html">&lt&lt 10</a>
+        <a href="11_area_do_circulo.html">11</a>
+        <a href="12_area_da_esfera.html">12 &gt&gt</a>
+    </div>
+
     <h1>Calcular área do círculo</h1>
 
     <p>Crie um algoritmo que calcule a área de um círculo, sendo que o comprimento do raio é informado pelo usuário. A área do círculo é calculada multiplicando-se pi e o raio ao quadrado.</p>
 
     <form class="main_form">
-
         <div class="topic-form">
             <label>Valor do raio:</label>
             <input type="number" id="raio" step="any" class="form-input" placeholder="Informe o comprimento do raio">
@@ -30,15 +35,16 @@
 
     <script>
         function calcularAreaCirculo() {
-            const pi = Math.PI
-            let raio = document.getElementById("raio").value;
+            const pi = Math.PI;
+            let raio = Number(document.getElementById("raio").value);
+
             let areaCirculo = pi * (raio ** 2)
-            let areaCirculoFormatado = areaCirculo.toFixed(2);
+            
 
             let resultado = document.getElementById("resultado");
-            resultado.value = "O círculo possui " + raio + " cm de raio. Sua área é de " + areaCirculoFormatado + " cm².";
+            
+            resultado.value = "O círculo possui " + raio + " cm de raio. Sua área é de " + areaCirculo.toFixed(2) + " cm².";
         }
-
     </script>
 </body>
 

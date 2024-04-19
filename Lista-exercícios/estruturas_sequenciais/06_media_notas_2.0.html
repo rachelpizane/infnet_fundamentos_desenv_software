@@ -9,12 +9,17 @@
 </head>
 
 <body>
+    <div class="container_link">
+        <a href="05_litro_combustivel.html">&lt&lt 05</a>
+        <a href="06_media_notas_2.0.html">06</a>
+        <a href="07_calculo_gorjeta.html">07 &gt&gt</a>
+    </div>
+
     <h1>Calcular média das notas</h1>
 
     <p>Crie um algoritmo para calcular a média de duas notas digitadas pelo usuário, sendo que a segunda nota tem peso dois.</p>
 
     <form class="main_form">
-
         <div class="topic-form">
             <label>1ª Nota:</label>
             <input type="number" id="nota1" step="any" class="form-input" placeholder="Escreva sua primeira nota">
@@ -43,11 +48,10 @@
 
             let media = ((nota1 * peso1) + (nota2 * peso2)) / (peso1 + peso2);
 
-            let mediaFormatada = media.toFixed(2);
 
             let resultado = document.getElementById("resultado");
 
-            resultado.value = "A média final do usuário foi " + mediaFormatada + ".";
+            resultado.value = "A média final do usuário foi " + media.toFixed(2) + ".";
         }
     </script>
 </body>

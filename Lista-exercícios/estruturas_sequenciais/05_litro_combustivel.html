@@ -19,10 +19,9 @@
 
     <p>Um motorista deseja abastecer um valor X em reais, de combustível. Escreva um algoritmo para ler o preço do litro do combustível e o valor que o motorista deseja abastecer. Em seguida, informe quantos litros foram abastecidos.</p>
 
+    <p>Litro da Gasolina: <strong>R$ 1,50</strong></p>
+
     <form class="main_form">
-
-        <p>Litro da Gasolina: <strong>R$ 1,50</strong></p>
-
         <div class="topic-form">
             <label>Valor:</label>
             <input type="number" id="valor" step="any" class="form-input" placeholder="Escreva qual valor para abastecer">
@@ -42,10 +41,11 @@
             const precoLitroCombustivel = 1.5
 
             let valor = Number(document.getElementById("valor").value);
-            let quantidadeLitro = (valor / precoLitroCombustivel).toFixed(2);
-
+            let quantidadeLitro = (valor / precoLitroCombustivel);
+            
             let resultado = document.getElementById("resultado")
-            resultado.value = "Com o valor de R$ " + valor + " será abastecido " + quantidadeLitro + " litro(s) de gasolina";
+            
+            resultado.value = "Com o valor de R$ " + valor.toFixed(2) + " será abastecido " + quantidadeLitro.toFixed(2) + " litro(s) de gasolina.";
         }
     </script>
 </body>

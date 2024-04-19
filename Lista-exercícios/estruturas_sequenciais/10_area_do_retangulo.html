@@ -18,12 +18,17 @@
 </head>
 
 <body>
+    <div class="container_link">
+        <a href="09_area_do_quadrado.html">&lt&lt 09</a>
+        <a href="10_area_do_retangulo.html">10</a>
+        <a href="11_area_do_circulo.html">11 &gt&gt</a>
+    </div>
+
     <h1>Calcular área do retângulo</h1>
 
     <p>Crie um algoritmo que calcule a área de um retângulo, sendo que os comprimentos da altura e da base são informados pelo usuário. A área do retângulo é calculada multiplicando-se a altura pela base.</p>
 
     <form class="main_form">
-
         <div class="topic-form">
             <label>Valor da altura:</label>
             <input type="number" id="altura" step="any" class="form-input" placeholder="Informe o comprimento da altura">
@@ -44,15 +49,15 @@
 
     <script>
         function calcularAreaRetangulo() {
-            let altura = document.getElementById("altura").value;
-            let base = document.getElementById("base").value;
+            let altura = Number(document.getElementById("altura").value);
+            let base = Number(document.getElementById("base").value);
 
             let areaRetangulo = altura * base;
-            let areaRetanguloFormatado = areaRetangulo.toFixed(2);
+        
 
             let resultado = document.getElementById("resultado");
 
-            resultado.value = "O rentangulo possui " + altura + " cm de altura e " + base + " cm de base. A sua área é de " + areaRetanguloFormatado + " cm²."
+            resultado.value = "O rentangulo possui " + altura + " cm de altura e " + base + " cm de base. A sua área é de " + areaRetangulo.toFixed(2) + " cm²."
         }
     </script>
 </body>
