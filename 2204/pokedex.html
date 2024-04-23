@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Type Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .pokemon-type {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        #pokemon-dropdown {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #pokemon-image {
+            display: none; /* Oculta a imagem por padrão */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokémon Type Finder</h1>
+    
+    <div id="pokemon-dropdown">
+        <select id="pokemon-select" onchange="fetchPokemonInfo(this.value)">
+            <option value="">Selecione um Pokémon</option>
+        </select>
+    </div>
+
+    <div id="pokemon-info" class="pokemon-info">
+        <img id="pokemon-image" src="" alt="Pokemon Image">
+        <h2 id="pokemon-name"></h2>
+        <h3 id="pokemon-type"></h3>
+    </div>
+
+    <script>
+        // Função para preencher o dropdown com os nomes dos Pokémon
+        function fillPokemonDropdown() {
+            const select = document.getElementById('pokemon-select');
+            const apiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=150';
+
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.results.forEach(pokemon => {
+                    const option = document.createElement('option');
+                    option.text = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+                    option.value = pokemon.name;
+                    select.add(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching Pokemon list:', error);
+            });
+        }
+
+        // Função para buscar informações do Pokémon selecionado
+        function fetchPokemonInfo(pokemonName) {
+            const pokemonInfo = document.getElementById('pokemon-info');
+            const pokemonNameElement = document.getElementById('pokemon-name');
+            const pokemonTypeElement = document.getElementById('pokemon-type');
+            const pokemonImageElement = document.getElementById('pokemon-image');
+
+            if (!pokemonName) { // Verifica se a opção padrão "Selecione um Pokémon" foi selecionada
+                // Se sim, define os campos em branco e oculta a imagem
+                pokemonImageElement.style.display = 'none';
+                pokemonNameElement.textContent = '';
+                pokemonTypeElement.textContent = '';
+                return; // Sai da função
+            }
+
+            const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Atualiza a imagem, nome e tipo do Pokémon
+                pokemonImageElement.style.display = 'block';
+                pokemonImageElement.src = data.sprites.front_default;
+                pokemonNameElement.textContent = `Name: ${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`;
+                pokemonTypeElement.textContent = `Type: ${data.types.map(type => type.type.name).join(', ')}`;
+            })
+            .catch(error => {
+                console.error(`Error fetching ${pokemonName} info:`, error);
+                // Se houver erro, define os campos em branco e oculta a imagem
+                pokemonImageElement.style.display = 'none';
+                pokemonNameElement.textContent = '';
+                pokemonTypeElement.textContent = '';
+            });
+        }
+
+        // Chamando a função para preencher o dropdown ao carregar a página
+        fillPokemonDropdown();
+    </script>
+</body>
+</html>
+
+
+
+
+

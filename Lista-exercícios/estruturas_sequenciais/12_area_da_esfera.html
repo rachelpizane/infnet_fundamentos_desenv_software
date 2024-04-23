@@ -5,16 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Calcular área do círculo</title>
+    <title>Calcular área da esfera</title>
 </head>
 
 <body>
+    <div class="container_link">
+        <a href="11_area_do_circulo.html">&lt&lt 11</a>
+        <a href="12_area_da_esfera.html">12</a>
+        <a href="13_area_do_cilindro.html">13 &gt&gt</a>
+    </div>
+
     <h1>Calcular área da esfera</h1>
 
     <p>Crie um algoritmo que calcule a área de uma esfera, sendo que o comprimento do raio é informado pelo usuário. A área da esfera é calculada multiplicando-se 4 vezes pi e o raio ao quadrado.</p>
 
     <form class="main_form">
-
         <div class="topic-form">
             <label>Valor do raio:</label>
             <input type="number" id="raio" step="any" class="form-input" placeholder="Informe o comprimento do raio">
@@ -30,16 +35,13 @@
 
     <script>
         function calcularAreaEsfera() {
-            
-            const pi4vezes = Math.PI * 4;
-            let raio = document.getElementById("raio").value;
-
-            let areaEsfera = pi4vezes * (raio ** 2);
-            let areaEsferaFormatado = areaEsfera.toFixed(2);
-
+            let raio = Number(document.getElementById("raio").value);
             let resultado = document.getElementById("resultado");
 
-            resultado.value = "A esfera possui " + raio + " cm de raio. Sua área é de " + areaEsferaFormatado + " cm²";
+            const pi = Math.PI;
+            let areaEsfera = (4 * pi) * (raio ** 2);
+            
+            resultado.value = "A esfera possui " + raio + " cm de raio. Sua área é de " + areaEsfera.toFixed(2) + " cm².";
         }
     </script>
 </body>

@@ -12,7 +12,7 @@
         // Importante saber como funciona os algoritmos, por mais que existam formulas pre-prontas.
 
         // Uma forma é utilizar o Math.Max + Spread.
-        // Porque nao funciona se usar só o Math.Max? Poisa função compara argumentos e o vetor é considerado um argumento. Para que isso nao ocorra, utilizamos o spread para transformar os valores em argumentos. É como se tirarssemos os colchetes.
+        // Porque nao funciona se usar só o Math.Max? Pois a função compara argumentos e o vetor é considerado um argumento. Para que isso nao ocorra, utilizamos o spread para transformar os valores em argumentos. É como se tirarassemos os colchetes.
 
         //*SPREAD - É um operador novo que veio na versão ES6 e que abre o vetor. No nosso exemplo, ele tira os colchetes do vetor temperaturas. Com isso é possivel fazer o math.max, pois antes disso ele diria que nao é um numero, pois ele considera que o vetor é um unico argumento
 
@@ -80,6 +80,16 @@
         */
 
         console.log(TestMin)
+        console.log("--\n")
+        let valoresEX = [2, 6, 3, 9, 10, 8, 11, 15, 18, 14, 17, 4, 1]
+        let valoresMax = valoresEX[0];
+        for(let i = 0; i < valoresEX.length; i++){
+            if(valoresEX[i] > valoresMax){
+                valoresMax = valoresEX[i]
+            }
+        }
+
+        console.log(valoresMax)
 
     </script>
 </body>
