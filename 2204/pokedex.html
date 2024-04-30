@@ -1,47 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Type Finder</title>
+    <title>Pokedex</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
+            background-color: #f3f3f3;
         }
+
         h1 {
             text-align: center;
+            margin-bottom: 20px;
         }
-        .pokemon-type {
+
+        #pokemon-card {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #pokemon-image {
+            display: block;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        #pokemon-info {
             text-align: center;
-            font-size: 24px;
-            margin-top: 20px;
+            padding: 20px;
         }
+
+        #pokemon-evolutions {
+            text-align: center;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
         #pokemon-dropdown {
             text-align: center;
             margin-top: 20px;
         }
-        #pokemon-image {
-            display: none; /* Oculta a imagem por padrão */
-            margin: 0 auto;
-        }
     </style>
 </head>
+
 <body>
-    <h1>Pokémon Type Finder</h1>
-    
+    <h1>Pokedex</h1>
+
     <div id="pokemon-dropdown">
         <select id="pokemon-select" onchange="fetchPokemonInfo(this.value)">
             <option value="">Selecione um Pokémon</option>
         </select>
     </div>
 
-    <div id="pokemon-info" class="pokemon-info">
+    <div id="pokemon-card">
         <img id="pokemon-image" src="" alt="Pokemon Image">
-        <h2 id="pokemon-name"></h2>
-        <h3 id="pokemon-type"></h3>
+        <div id="pokemon-info">
+            <h2 id="pokemon-name"></h2>
+            <h3 id="pokemon-type"></h3>
+        </div>
     </div>
+
+    <div id="pokemon-evolutions" class="pokemon-evolutions"></div>
 
     <script>
         // Função para preencher o dropdown com os nomes dos Pokémon
@@ -50,18 +87,18 @@
             const apiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=150';
 
             fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                data.results.forEach(pokemon => {
-                    const option = document.createElement('option');
-                    option.text = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-                    option.value = pokemon.name;
-                    select.add(option);
+                .then(response => response.json())
+                .then(data => {
+                    data.results.forEach(pokemon => {
+                        const option = document.createElement('option');
+                        option.text = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+                        option.value = pokemon.name;
+                        select.add(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching Pokemon list:', error);
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching Pokemon list:', error);
-            });
         }
 
         // Função para buscar informações do Pokémon selecionado
@@ -70,42 +107,88 @@
             const pokemonNameElement = document.getElementById('pokemon-name');
             const pokemonTypeElement = document.getElementById('pokemon-type');
             const pokemonImageElement = document.getElementById('pokemon-image');
+            const pokemonCard = document.getElementById('pokemon-card');
 
             if (!pokemonName) { // Verifica se a opção padrão "Selecione um Pokémon" foi selecionada
                 // Se sim, define os campos em branco e oculta a imagem
-                pokemonImageElement.style.display = 'none';
+                pokemonImageElement.src = '';
                 pokemonNameElement.textContent = '';
                 pokemonTypeElement.textContent = '';
+                pokemonCard.style.display = 'none';
+                document.getElementById('pokemon-evolutions').innerHTML = '';
                 return; // Sai da função
             }
 
             const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+            const speciesApiUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`;
 
             fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                // Atualiza a imagem, nome e tipo do Pokémon
-                pokemonImageElement.style.display = 'block';
-                pokemonImageElement.src = data.sprites.front_default;
-                pokemonNameElement.textContent = `Name: ${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`;
-                pokemonTypeElement.textContent = `Type: ${data.types.map(type => type.type.name).join(', ')}`;
-            })
-            .catch(error => {
-                console.error(`Error fetching ${pokemonName} info:`, error);
-                // Se houver erro, define os campos em branco e oculta a imagem
-                pokemonImageElement.style.display = 'none';
-                pokemonNameElement.textContent = '';
-                pokemonTypeElement.textContent = '';
-            });
+                .then(response => response.json())
+                .then(data => {
+                    // Atualiza a imagem, nome e tipo do Pokémon
+                    pokemonImageElement.src = data.sprites.front_default;
+                    pokemonNameElement.textContent = `Name: ${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`;
+                    pokemonTypeElement.textContent = `Type: ${data.types.map(type => type.type.name).join(', ')}`;
+                    pokemonCard.style.display = 'block';
+
+                    // Fazendo requisição para obter informações sobre a espécie do Pokémon
+                    fetch(speciesApiUrl)
+                        .then(response => response.json())
+                        .then(speciesData => {
+                            // Verifica se a espécie tem uma cadeia de evolução
+                            if (speciesData.evolution_chain) {
+                                fetch(speciesData.evolution_chain.url)
+                                    .then(response => response.json())
+                                    .then(evolutionData => {
+                                        // Cria um vetor com todas as evoluções do Pokémon, excluindo o próprio Pokémon
+                                        const evolutionChain = [];
+                                        getEvolutions(evolutionData.chain, evolutionChain, pokemonName);
+                                        // Exibe as evoluções no elemento HTML
+                                        const evolutionList = evolutionChain.length > 0 ? `<li>${evolutionChain.join('</li><li>')}</li>` : 'No evolutions available';
+                                        document.getElementById('pokemon-evolutions').innerHTML = `<h3>Evolutions:</h3><ul>${evolutionList}</ul>`;
+                                    })
+                                    .catch(error => {
+                                        console.error(`Error fetching ${pokemonName} evolution info:`, error);
+                                        document.getElementById('pokemon-evolutions').innerHTML = 'Error fetching evolution info';
+                                    });
+                            } else {
+                                // Se não houver cadeia de evolução, exibe mensagem
+                                document.getElementById('pokemon-evolutions').innerHTML = 'No evolution chain available';
+                            }
+                        })
+                        .catch(error => {
+                            console.error(`Error fetching ${pokemonName} species info:`, error);
+                            document.getElementById('pokemon-evolutions').innerHTML = 'Error fetching species info';
+                        });
+                })
+                .catch(error => {
+                    console.error(`Error fetching ${pokemonName} info:`, error);
+                    // Se houver erro, define os campos em branco e oculta a imagem
+                    pokemonImageElement.src = '';
+                    pokemonNameElement.textContent = '';
+                    pokemonTypeElement.textContent = '';
+                    pokemonCard.style.display = 'none';
+                    document.getElementById('pokemon-evolutions').innerHTML = '';
+                });
+        }
+
+        // Função para obter todas as evoluções do Pokémon, excluindo o próprio Pokémon
+        function getEvolutions(evolutionChain, evolutionArray, pokemonName) {
+            if (evolutionChain.species.name !== pokemonName) {
+                evolutionArray.push(evolutionChain.species.name);
+            }
+            if (evolutionChain.evolves_to.length > 0) {
+                evolutionChain.evolves_to.forEach(evolution => {
+                    if (evolution.species.name !== pokemonName) {
+                        getEvolutions(evolution, evolutionArray, pokemonName);
+                    }
+                });
+            }
         }
 
         // Chamando a função para preencher o dropdown ao carregar a página
         fillPokemonDropdown();
     </script>
 </body>
+
 </html>
-
-
-
-
-

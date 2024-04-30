@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+    // Se listarmos todos os números naturais abaixo de 10 que são múltiplos de 3 ou 5, obteremos 3, 5, 6 e 9. A soma desses múltiplos é 23. Encontre a soma de todos os múltiplos de 3 ou 5 abaixo de 1.000.
+
+    function somarMultiplico3ou5(limite){
+        let soma = 0;
+        for(let i = 0; i < limite; i++){
+            if(i % 3 === 0 || i % 5 === 0){
+                soma += i // = soma + soma + i;
+            }
+        }
+        return `A soma de todos os multiplos de 3 ou 5 abaixo de ${limite} é ${soma}` // É só mais uma forma de concaternar string com variáveis. Da forma tradicional ficaria: "A soma de todos os multiplos de 3 ou 5 abaixo de " + limite + " é " + soma. Percebemos que a forma atual fica mais limpa e entendivel do que ficar usando vários "+";
+    }
+
+    const limite = 1000;
+    console.log(somarMultiplico3ou5(limite)) 
+    /*
+    
+    // Porque criar funções?
+    - Podem ser reutilizadas
+    - Fácil entendimento. Você sabe o que aquela função faz pelo nome.
+    - Facilita a manuteção. Quando precisar fazer algum reparo em uma funcionalidade, você saberá que tudo que importa estará em uma função especifica.
+    - As funçõesp precisam ser pequenas e simples. Um bom exemplo foi na aula de JS, quando construimos uma função que calculava o bonus pela idade, tivemos criar uma outra função que retornava a idade pelo ano atual - o anos de nascimento. Porque não incluimos o comando da idade no calculo do bonus? porque uma coisa não tem nada a ver com a outra.
+    */
+
+    // Utilizando forEach, for..in em um vetor que possui objetos e que neles também possui um vetor.
+    class produto{
+        constructor(id, nome, preco, cor){
+            this.id = id;
+            this.nome = nome;
+            this.preco = preco;
+            this.cor = cor
+        }
+    }
+    let produtos = [new produto(2, "Planta", 10.50, ["verde", "branco"]), new produto(5, "Carro", 8.40, ["preto", "vermelho"])];
+    produtos.forEach((func)=>{
+        for(j in func){
+            if(j !== "cor"){
+                console.log(`${j}: ${func[j]}`)
+            } else {
+                console.log(`${j}: ${func[j].join(", ")}`);
+            }
+        }
+    })
+    </script>
+</body>
+</html>

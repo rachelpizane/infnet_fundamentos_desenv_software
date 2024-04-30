@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        // É normalmente esbarrarmos em matématica básica na programação.
+
+        //  Se listarmos todos os números naturais abaixo de $10$ que são múltiplos de 3 ou 5, obteremos 3, 5, 6 e 9. A soma desses múltiplos é 23. Encontre a soma de todos os múltiplos de 3 ou 5 abaixo de 1.000. (https://projecteuler.net/problem=1)
+        function somaMultiplos3ou5(limite){
+            let soma = 0;
+            for(let i = 0; i < limite; i++){
+                if(i % 3 === 0|| i % 5 === 0){
+                    soma += i; 
+                }
+            }
+
+            console.log(`A soma é: ${soma}`) // O nome do uso das crases e ${} é "interpolação de string"
+        }
+
+        const limite = 1000;
+        somaMultiplos3ou5(limite);
+       
+        //Cada novo termo na sequência de Fibonacci é gerado pela adição dos dois termos anteriores. Começando com 1$ e 2$, os primeiros termos de 10 serão:
+
+        // $$1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...$$</p>
+
+        // Considerando os termos da sequência de Fibonacci cujos valores não excedem quatro milhões, encontre a soma dos termos de valor par.
+        function somaParFibonacci(limite){
+            let somaX = 0;
+            let fibo = [];
+            
+            for(let i = 0; i < limite;i++){
+                if(i === 0){
+                    fibo.push(1)
+                } else if (i === 1){
+                    fibo.push(2);
+                } else {
+                    fibo.push(fibo[i-1] + fibo[i-2])
+                }
+                
+            }
+
+            fibo.forEach((func)=>{
+                if(func % 2 === 0){
+                    somaX += func;
+                };
+            })
+
+            return `Soma: ${somaX}.\n\nVetor: ${fibo}`;
+        }
+
+        const limiteX = 100;
+        console.log(somaParFibonacci(limiteX))
+
+        // callbak é mais comum no javascript, tipo o forEach, uma função dentro de função. pesquisar como isso não é uma questão, mas seria o ideal.
+        // Livro recomendado: Clean Code, parece ser interessante, ler o capitulo function.
+
+        // Falaremos sobre forEacth
+        let frutas = ["Maçã", "Banana", "Pera", "Uva"];
+       
+        frutas.forEach((func)=>{
+            console.log(func)
+        }) // porra kkk "for Each" = "para cada" = "para cada elemento, faça esse função"
+
+        console.log("---------\n")
+        // Utilizando objetos e for..in
+        let corinthias = {
+            nome: "Conrinthias",
+            estado: "SP",
+            fundacao: 1910,
+        }
+
+        for(let i in corinthias){
+            console.log(i + ": " + corinthias[i])
+        }
+
+        let palmeiras = {
+            nome: "Palmeiras",
+            estado: "RJ",
+            fundacao: 1945
+        }
+        
+        console.log("---------\n")
+        let times = [];
+        times.push(corinthias, palmeiras);
+
+        times.forEach((func)=>{
+            for(j in func){
+                console.log(j + ": " + func[j])
+            }
+        })
+        // ele fez mais um if se tiver uma propriedade com vetores.
+        </script>
+</body>
+</html>
