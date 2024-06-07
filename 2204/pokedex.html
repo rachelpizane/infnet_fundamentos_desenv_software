@@ -1,64 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Pokedex</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f3f3f3;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #pokemon-card {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        #pokemon-image {
-            display: block;
-            margin: 0 auto;
-            padding-top: 20px;
-        }
-
-        #pokemon-info {
-            text-align: center;
-            padding: 20px;
-        }
-
-        #pokemon-evolutions {
-            text-align: center;
-            margin-top: 20px;
-            padding-bottom: 20px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        #pokemon-dropdown {
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 
 <body>
@@ -70,15 +17,19 @@
         </select>
     </div>
 
-    <div id="pokemon-card">
-        <img id="pokemon-image" src="" alt="Pokemon Image">
-        <div id="pokemon-info">
-            <h2 id="pokemon-name"></h2>
-            <h3 id="pokemon-type"></h3>
+    <div class="box">
+        <div id="pokemon-card">
+            <img id="pokemon-image" src="" alt="Pokemon Image">
+            <div id="pokemon-info">
+                <h2 id="pokemon-name"></h2>
+                <h3 id="pokemon-type"></h3>
+                <h3 id="pokemon-evolutions" class="pokemon-evolutions"></h3>
+            </div>
+        
         </div>
     </div>
 
-    <div id="pokemon-evolutions" class="pokemon-evolutions"></div>
+    
 
     <script>
         // Função para preencher o dropdown com os nomes dos Pokémon
