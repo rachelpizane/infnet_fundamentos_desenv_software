@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Maior número 2v</title>
+</head>
+<body onload="solicitarNumeros()">
+    <!-- 
+        4.	Crie um algoritmo que leia três números e mostre o maior número.
+    -->
+    <script>
+        function maiorNumero(num1, num2, num3){
+           if(num1 === num2 && num1 === num3){
+            return  `Todo os números são iguais`
+           } else {
+            let nums = [num1, num2, num3]
+            nums.sort((a,b)=> a - b)
+          
+            return`O maior número é ${nums[2]}.`
+           }
+            
+        }
+
+        function solicitarNumero(i){
+            let num;
+            do {
+                num = Number(prompt(`Informe o ${i}º número:`));
+            } while (isNaN(num))
+
+            return num;
+        }
+
+        function solicitarNumeros(){
+            let num1 = solicitarNumero(1)
+            let num2 = solicitarNumero(2) 
+            let num3 = solicitarNumero(3)
+ 
+            
+            alert(maiorNumero(num1, num2, num3));
+
+        }
+    </script>
+</body>
+
+</html>
