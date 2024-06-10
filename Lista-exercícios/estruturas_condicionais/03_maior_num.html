@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Maior número</title>
+</head>
+<body onload="solicitarNumeros()">
+    <!-- Crie um algoritmo que leia dois números e mostre o maior número. -->
+    <script>
+        function maiorNumero(num1, num2){
+            return num1 > num2 ? num1 : num2;
+        }
+
+        function solicitarNumero(i){
+            let num;
+            do {
+                num = Number(prompt(`Informe o ${i}º número:`));
+            } while (isNaN(num))
+
+            return num;
+        }
+
+        function solicitarNumeros(){
+            let num1 = solicitarNumero(1)
+            let num2 = solicitarNumero(2)
+
+            alert(`O maior número é: ${maiorNumero(num1, num2)}.`)
+        }
+    </script>
+</body>
+
+</html>

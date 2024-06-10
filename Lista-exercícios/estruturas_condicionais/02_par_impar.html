@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Par ou Impar? </title>
+</head>
+<body onload="solicitarNumero()">
+    <!-- Crie um algoritmo que leia um número e mostre se o mesmo é par ou ímpar. -->
+    <script>
+        function parOuImpar(num){
+            if(num % 2 === 0){
+                return "par"
+            } else {
+                return "impar"
+            }
+        };
+
+        function solicitarNumero(){
+            let num;
+        do {
+            num = Number(prompt("Informe um número inteiro"));
+        } while (isNaN(num) || !Number.isInteger(num))
+
+        // Number.isInteger() é um método que connfirmar se o numero passado é inteiro ou ou não (true/false)
+
+        alert(`O número ${num} é ${parOuImpar(num)}.`)
+        }
+
+    </script>
+</body>
+
+</html>
