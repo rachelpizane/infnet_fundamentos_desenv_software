@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem crescente</title>
+</head>
+
+<body>
+    <!-- 5.	Crie um algoritmo que leia três números e mostre-os em ordem crescente. -->
+    <script>
+        function colocarOrdemCrescente(numeros) {
+            numeros.sort((a, b) => a - b)
+
+            return numeros.join(", ")
+        }
+
+        window.onload = function solicitarNumeros() {
+            let numeros = [];
+            for (let i = 0; i < 3; i++) {
+                let num;
+                do {
+                    num = Number(prompt("Informe um numero"));
+                    if (isNaN(num)) {
+                        alert("Informe apenas numeros")
+                    }
+                } while (isNaN(num))
+
+                numeros.push(num)
+            }
+
+            alert(`Os números em ordem crescente são: ${colocarOrdemCrescente(numeros)}.`);
+        }
+    </script>
+</body>
+
+</html>

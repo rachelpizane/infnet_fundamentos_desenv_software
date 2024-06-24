@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aumento de Salario</title>
+</head>
+
+<body>
+    <!-- 
+    7.	Crie um algoritmo que calcule e mostre o novo valor de um salário a partir das seguintes regras: salários de até R$ 1.000,00 inclusive recebem 30% de aumento, salários de até R$ 2.000,00 inclusive recebem 25%, salários de até R$ 3.000,00 inclusive recebem 20%, salários de até R$ 4.000,00 inclusive recebem 15% e salários acima de R$ 4.000,00 recebem 10%.  
+    -->
+    <script>
+        function aumentarSalario(salario){
+            let aumento;
+            if(salario <= 1000){
+                aumento = 1.3;
+            } else if( salario <= 2000) {
+                aumento = 1.25;
+            } else if( salario <= 3000) {
+                aumento = 1.20;
+            } else if( salario <= 4000) {
+                aumento = 1.15;
+            } else {
+                aumento = 1.1;
+            }
+
+            return salario * aumento;
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            let salario;
+
+            do {
+                salario = Number(prompt("Informe o seu salário"))
+            } while (salario < 0 || isNaN(salario)) ;
+            
+            if(!salario) {
+                alert("Atualização cancelada");
+                return
+            }
+
+            alert(`Salário atualizado: R$ ${aumentarSalario(salario).toFixed(2)}.`)
+
+            alert("Atualização finalizada");
+        })
+    </script>
+</body>
+
+</html>

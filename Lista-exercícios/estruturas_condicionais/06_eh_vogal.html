@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>É vogal?</title>
+</head>
+
+<body>
+    <!-- 6.	Crie um algoritmo que leia um caractere e informe se o mesmo é uma vogal ou não. -->
+    <script>
+
+
+        function validarCaractere(caracter) {
+            let vogais = ["a", "e", "i", "o", "u"];
+
+            vogais.forEach((vogal) => {
+                if (caracter === vogal) {
+                    return "É vogal.";
+                }
+            });
+            return "Não é vogal."
+        }
+
+        window.onload = function solicitarCaractere() {
+            let caracter = prompt("Informe uma letra (A-Z)").toLowerCase();
+
+            alert(validarCaractere(caracter))
+        }
+
+    </script>
+</body>
+
+</html>

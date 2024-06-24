@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano e mês</title>
+</head>
+
+<body>
+    <!-- 
+    9.	Crie um algoritmo que receba um número inteiro, que representa um determinado mês do ano, e mostre o nome do mês correspondente. Por exemplo, se for informado o número 2, algoritmo deverá exibir fevereiro. O algoritmo deve validar se a entrada está correta.
+    -->
+    <script>
+        function primeiraLetraMaiscula(mesNome){
+            return mesNome.charAt(0).toUpperCase() + mesNome.slice(1);
+        }
+
+        function determinarNomeMes(mesNumero) {
+            const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+
+            return primeiraLetraMaiscula(meses[mesNumero -1]);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let mesNumero;
+            do {
+                mesNumero = parseInt(prompt("Informe um número de um mês [1- 12]"));
+            } while (mesNumero <= 0 || mesNumero > 12 || isNaN(mesNumero));
+
+            alert(`Mês nº ${mesNumero}: ${determinarNomeMes(mesNumero)}`)
+        })
+    </script>
+</body>
+
+</html>
