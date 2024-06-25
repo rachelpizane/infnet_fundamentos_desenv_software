@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano e mês</title>
+</head>
+
+<body>
+    <!-- 
+    10.	 Crie um algoritmo que valide uma data, formada por dia, mês e ano. Por exemplo, a data 30/02 é sempre inválida; mas a data 29/02/2012 é válida.
+    -->
+    <script>
+        function ehBissexto(ano) {
+            return (ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0
+        }
+
+        function validarData(data) {
+
+            const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+
+            if (!regex.test(data)) {
+                return false
+            }
+
+            const dataArray = data.split("/");
+            const dia = parseInt(dataArray[0]);
+            const mes = parseInt(dataArray[1]);
+            const ano = parseInt(dataArray[2]);
+
+            const diaFevereiro = ehBissexto(ano) ? 29 : 28;
+            const diasMes = [31, diaFevereiro, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+            if (mes < 1 || mes > 12) {
+                return false
+            }
+
+            if (dia <= 0 || dia > diasMes[mes - 1]) {
+                return false
+            }
+
+            return true
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let data = prompt("Informe uma data para validação [dd/mm/aaa]: ")
+
+            const msg = validarData(data) ? "A data é válida!" : "A data é inválida..."
+
+            alert(msg)
+        })
+    </script>
+</body>
+
+</html>
