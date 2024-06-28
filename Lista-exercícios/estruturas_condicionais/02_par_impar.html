@@ -12,11 +12,11 @@
     <!-- Crie um algoritmo que leia um número e mostre se o mesmo é par ou ímpar. -->
     <script>
         function parOuImpar(num){
-            if(num % 2 === 0){
-                return "par"
-            } else {
-                return "impar"
+            if(num === 0){
+                return "neutro";
             }
+            
+            return num % 2 === 0 ? "par" : "impar";
         };
 
         function solicitarNumero(){

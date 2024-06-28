@@ -34,7 +34,7 @@
                 octeto = parseInt(prompt("Informe o primeiro octeto do endereço IP (0-255): "))
             } while (octeto < 0 || octeto > 255 || isNaN(octeto))
             
-            alert(`Número informado: ${octeto} \nSua classe é a ${determinarClasseIP(octeto)}.`)
+            alert(`Número informado: ${octeto} \nSua classe é: ${determinarClasseIP(octeto)}.`)
             
         })
     </script>
